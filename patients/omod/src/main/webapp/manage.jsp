@@ -29,7 +29,12 @@
 
 <script type="text/javascript">
     $j(document).ready(function() {
-        $j('#myTable').dataTable();
+        $j('#myTable').dataTable({
+            bJQueryUI:true,
+            bAutoWidth: true,
+            sPaginationType: "full_numbers"
+        });
+
     } );
 </script>
 
@@ -44,7 +49,7 @@
     </thead>
     <tbody>
     <c:forEach var="patient" items="${patients}" varStatus="status">
-    <td><a href="encounters.form?patientId=${patient.patientId}" >${patient.personName.fullName}</a></td>
+    <td><a href="encounter.form?patientId=${patient.patientId}" >${patient.personName.fullName}</a></td>
         <tr>
             <td>${patient.givenName}</td>
             <td>${patient.age}</td>
